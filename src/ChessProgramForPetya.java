@@ -13,7 +13,7 @@ public class ChessProgramForPetya {
         String moveInChess = scanner.nextLine();
         String plusChessLetter ="" +  letterInChess[2] + numberInChess[6] + "-" + letterInChess[3] + numberInChess[4];
 //        System.out.println(plusChessLetter);
-        else if (moveInChess.equals(plusChessLetter)){
+        if (moveInChess.equals(plusChessLetter)){
             System.out.println("Yes");
         }else{
             System.out.println("No");

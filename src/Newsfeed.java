@@ -29,6 +29,7 @@ public class Newsfeed {
 
         System.out.println("The topics in this feed are:");
         System.out.println(Arrays.toString(feed.topics));
+        
     }
 }
 
