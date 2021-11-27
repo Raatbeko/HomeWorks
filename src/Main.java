@@ -2,34 +2,36 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int num = scanner.nextInt();
-//        String[] arr = new String[num];
-        int sum = 0;
+        Student studentOne = new Student();
+        studentOne.name = "Maks";
+        studentOne.age = 18;
+        studentOne.gender = "Man";
+        studentOne.whatCourseIsHeIn = "3";
+        studentOne.whoIsStudyingAt = "Soft engineer";
+        studentOne.howDoesHeStudy = "well";
+        studentOne.informationAboutStudent();
 
-        for (int i = 0; i < num ; i++) {
-            i = num % 10;
-            num /= 10;
+        System.out.println();
 
-            sum += i;
+        Student studentTwo = new Student();
+        studentTwo.name = "Marina";
+        studentTwo.age = 17;
+        studentTwo.gender = "woman";
+        studentTwo.whatCourseIsHeIn = "1";
+        studentTwo.whoIsStudyingAt = "dentist";
+        studentTwo.howDoesHeStudy = "We aren't know ";
+        studentTwo.informationAboutStudent();
+        System.out.println();
 
-            sum -= i + 1;
+        Student studentThree = new Student();
+        studentThree.name = "Mark";
+        studentThree.age = 24;
+        studentThree.gender = "Man";
+        studentThree.whatCourseIsHeIn = "5";
+        studentThree.whoIsStudyingAt = "Business management";
+        studentThree.howDoesHeStudy = "SO cool ";
+        studentThree.informationAboutStudent();
 
-        System.out.println(sum);
-        }
-//        while (num > 0) {
-//
-//            int num2 = num % 10;
-//            num /= 10;
-//            if (num2 % 2 == 0){
-//                sum+=num2;
-//            }else {
-//                sum-=num2;
-//            }
-//        }
+
     }
-//    static int[] ara(int[] arr){
-//        return arr;
-//    }
-
 }
