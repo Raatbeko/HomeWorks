@@ -1,3 +1,7 @@
+package HomeWork;
+
+import HomeWork.Human;
+
 public class Student extends Human {
     long studentID;
     String whatCourseIsHeIn, whoIsStudyingAt, howDoesHeStudy;
