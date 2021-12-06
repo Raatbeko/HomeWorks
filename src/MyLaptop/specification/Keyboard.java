@@ -1,6 +1,8 @@
 package MyLaptop.specification;
 
 public class Keyboard {
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_WHITE = "\u001B[37m";
     private String languageInKeyboard;
     private boolean lightYesOrNot;
     private String light;
@@ -8,7 +10,7 @@ public class Keyboard {
     public Keyboard() {
     }
 
-    public Keyboard(String languageInKeyboard,boolean lightYesOrNot,String light) {
+    public Keyboard(String languageInKeyboard, boolean lightYesOrNot, String light) {
         this.languageInKeyboard = languageInKeyboard;
         this.light = light;
         this.lightYesOrNot = lightYesOrNot;
@@ -36,5 +38,12 @@ public class Keyboard {
 
     public void setLanguageInKeyboard(String languageInKeyboard) {
         this.languageInKeyboard = languageInKeyboard;
+    }
+
+    @Override
+    public String toString() {
+        return "Keyboard         " +
+                  ANSI_WHITE + " layout :" + languageInKeyboard + "Glows: " + true + "" +
+                ", Color " + light + ANSI_RESET;
     }
 }

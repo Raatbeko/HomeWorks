@@ -1,10 +1,13 @@
 package MyLaptop.specification;
 
 public class Display {
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_WHITE = "\u001B[37m";
     private String sizeDisplay;
     private String modelDisplay;
 
     public Display() {
+
 
     }
 
@@ -30,4 +33,8 @@ public class Display {
         this.sizeDisplay = sizeDisplay;
     }
 
+    @Override
+    public String toString() {
+        return "Display          " + ANSI_WHITE +sizeDisplay + "," + modelDisplay + ANSI_RESET;
+    }
 }

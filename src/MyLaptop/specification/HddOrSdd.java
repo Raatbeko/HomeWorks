@@ -1,6 +1,8 @@
 package MyLaptop.specification;
 
 public class HddOrSdd {
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_WHITE = "\u001B[37m";
     private String hddOrSdd;
     private String size;
 
@@ -27,5 +29,10 @@ public class HddOrSdd {
 
     public void setHddOrSdd(String hddOrSdd) {
         this.hddOrSdd = hddOrSdd;
+    }
+
+    @Override
+    public String toString() {
+        return "Storage device   " + ANSI_WHITE + hddOrSdd + "," + size + ANSI_RESET;
     }
 }
