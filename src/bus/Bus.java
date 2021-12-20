@@ -7,15 +7,17 @@ import java.util.Scanner;
 
 public class Bus {
     private final Passangers[] passangers;
+    Scanner scanner = new Scanner(System.in);
+
 
     public Bus(int size) {
         this.passangers = new Passangers[size];
     }
 
-    public void addPassanger(Passangers[] passangers) {
+    public void showPassanger(Passangers[] passangers) {
         for (int i = 0; i < passangers.length; i++) {
             this.passangers[i] = passangers[i];
-            System.out.println("N" + i + ":" + this.passangers[i].getName());
+            System.out.println("N" + (i+1) + ":" + this.passangers[i].getName());
         }
 
 
@@ -26,9 +28,10 @@ public class Bus {
         passangers[numElem] = null;
     }
 
-    public void showPassenger() {
+    public void addPassenger() {
         System.out.println("Do you want add new passangers?");
         String addNewPassangers = scanner.nextLine();
+        int numOfPleace = 0;
 
         if (addNewPassangers.equals("Yes")) {
 
@@ -40,9 +43,10 @@ public class Bus {
             System.out.print("Price: ");
             int priceOfRoad = scanner.nextInt();
             for (int i = 0; i < passangers.length; i++) {
+                numOfPleace++;
                 if (passangers[i] == null) {
 
-                    this.passangers[i] = new Passangers(name, priceOfRoad);
+                    this.passangers[i] = new Passangers(numOfPleace++,name, priceOfRoad);
                 break;
                 }
             }
@@ -73,42 +77,24 @@ public class Bus {
 
     }
 
-    Scanner scanner = new Scanner(System.in);
+    public void sortsObject(){
+        int min = 0;
+        System.out.println(Arrays.toString(passangers));
+        for (int j = 0;j< passangers.length;j++){
+            min = j;
+            for (int i = 0;i< passangers.length-1;i++){
+                if (passangers[i].getNumOfPleace()<  passangers[min].getNumOfPleace()){
+                    min= i;
 
-    public void results(Passangers[] passangers) {
-        for (int i = 0; i < passangers.length - 1; i++) {
-            System.out.println(passangers[i]);
-        }
-        if (Passangers.count > passangers.length) {
-
-            System.out.println("There're no seats ");
-
-        }
-        boolean find = true;
-        while (find) {
-
-            System.out.println("Do you want add new passangers?");
-            String addNewPassangers = scanner.nextLine();
-
-            if (addNewPassangers.equals("Yes")) {
-
-                System.out.println("choose the please: " + Arrays.toString(passangers) + "\nNum: ");
-                int numOfPlease = scanner.nextInt();
-
-
-                System.out.println("Name: ");
-                String name = scanner.next();
-
-
-                System.out.print("Price: ");
-                int priceOfRoad = scanner.nextInt();
-                passangers[numOfPlease] = new Passangers(name, priceOfRoad);
+                }
+                if (min!=j){
+                    Passangers arr = passangers[i];
+                    passangers[i] = passangers[min];
+                    passangers[min] = arr;
+                }
             }
-
-            System.out.println(Arrays.toString(passangers));
-            find = false;
         }
-
+        System.out.println(Arrays.toString(passangers));
 
     }
 }

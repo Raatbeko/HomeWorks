@@ -5,12 +5,14 @@ public class Passangers {
     public static int count = 0;
     private int price;
     public static long sumOfPrice = 0;
+    private int numOfPleace = 0;
 
     public Passangers() {
         count++;
     }
 
-    public Passangers(String name,int price) {
+    public Passangers(int numOfPleace,String name,int price) {
+        this.numOfPleace = numOfPleace;
         this.name = name;
         this.price = price;
         count ++;
@@ -19,7 +21,15 @@ public class Passangers {
 
     @Override
     public String toString() {
-        return "name: " + name + "\nPrice: " + price;
+        return "N"+ numOfPleace+": Name: " + name + "\nPrice: " + price;
+    }
+
+    public int getNumOfPleace() {
+        return numOfPleace;
+    }
+
+    public void setNumOfPleace(int numOfPleace) {
+        this.numOfPleace = numOfPleace;
     }
 
     public int getPrice() {
