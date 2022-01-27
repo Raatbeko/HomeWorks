@@ -2,13 +2,12 @@ package AirPort;
 
 public class Boing extends Aircraft{
 
-    public Boing() {
-    }
 
-    public Boing( String type) {
-        this.id++;
+    public Boing() {
+        count++;
+        this.id +=count;
         this.model = this.getClass().getSimpleName();
-        this.type = type;
+        this.type = "Wars";
     }
 
     @Override

@@ -1,40 +1,55 @@
 package AirPort.Management;
 
 import AirPort.Flight;
-
-import java.util.List;
+import java.io.*;
+import java.util.Arrays;
 
 public class AirportManagement implements Management {
-    List<Flight> flights;
+    Flight[] flights;
+    File file = new File("flights_plan.txt");
 
-    public AirportManagement(List<Flight> flights) {
+    public AirportManagement(Flight[] flights) {
         this.flights = flights;
     }
 
     @Override
-    public void addFlight(Flight flight) {
-        flights.add(flight);
+    public void addFlight(Flight flight) throws IOException {
+
+        if (flights[flights.length-1] == null) {
+            for (int i = 0; i < flights.length; i++) {
+                if (flights[i] == null) {
+                    flights[i] = flight;
+                }
+            }
+        }else{
+            System.out.println("Not have place!");
+        }
+        FileOutputStream fileOutputStream = new FileOutputStream(file);
+        fileOutputStream.write(Arrays.toString(flights).getBytes());
+
     }
 
     @Override
     public void showRace() {
-        System.out.println(flights);
+        System.out.println(Arrays.toString(flights));
     }
 
     @Override
     public void findRace(String name) {
-        for (Flight flight : flights) {
-            if (name.equalsIgnoreCase(flight.aircraft())) {
-                System.out.println(flight);
+
+            for (Flight flight : flights) {
+                if (name.equalsIgnoreCase(flight.getAircraft().getType())) {
+                    System.out.println(flight);
+                }
             }
-        }
+
     }
 
-    public List<Flight> getFlights() {
+    public Flight[] getFlights() {
         return flights;
     }
 
-    public void setFlights(List<Flight> flights) {
+    public void setFlights(Flight[] flights) {
         this.flights = flights;
     }
 }

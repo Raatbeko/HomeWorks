@@ -12,20 +12,12 @@ public class Flight {
     public Flight() {
     }
 
-    public Flight( String departureTime, String arrivalTime, Aircraft aircraft, String status,FileOutputStream fos) throws Exception {
+    public Flight( String departureTime, String arrivalTime, Aircraft aircraft, String status) {
         this.id ++;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
             this.aircraft = aircraft;
         this.status = status;
-
-        fos.write(("Flight{" +
-                "id=" + id +
-                ", departureTime='" + departureTime + '\'' +
-                ", arrivalTime='" + arrivalTime + '\'' +
-                ", aircraft=" + aircraft +
-                ", status='" + status + '\'' +
-                "}\n").getBytes());
     }
     public String aircraft(){
         return aircraft.type;

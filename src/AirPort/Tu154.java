@@ -1,13 +1,12 @@
 package AirPort;
 
 public class Tu154 extends Aircraft{
-    public Tu154() {
-    }
 
-    public Tu154(  String type) {
-        this.id++;
+    public Tu154( ) {
+        count++;
+        this.id+=count;
         this.model = this.getClass().getSimpleName();
-        this.type = type;
+        this.type = "Passengers";
     }
 
     @Override
