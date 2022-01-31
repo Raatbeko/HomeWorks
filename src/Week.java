@@ -1,10 +1,8 @@
 import Enums.Aweek;
 
-import java.lang.invoke.SwitchPoint;
-import java.util.Calendar;
 import java.util.Scanner;
 
-public class Main {
+public class Week {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String name = scanner.next();
@@ -46,25 +44,5 @@ public class Main {
                 System.out.println("You made a mistake!!!");
         }
     }
-
-    public static int calculate(char functional, int num1, int num2) {
-
-        switch (functional) {
-            case '+':
-                return num1 + num2;
-
-            case '-':
-                return num1 - num2;
-
-            case '*':
-                return num1 * num2;
-
-            case '/':
-                return num1 / num2;
-
-        }
-        return 0;
-    }
-
 
 }
