@@ -1,9 +1,12 @@
-import javax.swing.plaf.IconUIResource;
-import java.awt.event.MouseAdapter;
+package Animal;
+
+import Animal.AnimalAbstract;
+import Animal.Cat;
+import Animal.Dog;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -87,7 +90,7 @@ public class Main {
             }
         }
 
-        return "Sum of age dog-> "+sumOfAgeDog+"\nSum of age Cat-> "+sumOfAgeCat+"\nSum of age Mause->"+sumOfAgeMause;
+        return "Sum of age dog-> "+sumOfAgeDog+"\nSum of age Animal.Cat-> "+sumOfAgeCat+"\nSum of age Animal.Mause->"+sumOfAgeMause;
     }
 
     public static   LinkedList<AnimalAbstract> moveAll(LinkedList<AnimalAbstract> animals){

@@ -1,3 +1,5 @@
+package Animal;
+
 public abstract class AnimalAbstract {
     private int age;
 
@@ -7,7 +9,7 @@ public abstract class AnimalAbstract {
 
     @Override
     public String toString() {
-        return "AnimalAbstract{" +
+        return "Animal.AnimalAbstract{" +
                 "age=" + age +
                 '}';
     }
