@@ -22,18 +22,14 @@ public class OrderManagement implements Management {
 
     @Override
     public void removeOrder(Order orderOfProduct) {
-        boolean check = true;
-        for (Order order : orders) {
-            if (orderOfProduct.equals(order)) {
-                orders.remove(orderOfProduct);
-                check = false;
+
+         if (orders.remove(orderOfProduct)){
                 System.out.println("Заказ удален!!!");
-                return;
-            }
-        }
-        if (check) {
-            System.out.println("Такой продук и так нет!");
-        }
+         }else {
+             System.out.println("Токого заказа и так нет.");
+         }
+
+
     }
 
     @Override
