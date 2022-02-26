@@ -1,15 +1,30 @@
 package Animal;
 
-public class Pet {
+import java.util.Objects;
+
+public abstract class PetAbs {
     private String name;
     private int age;
 
-    public Pet() {
+    public PetAbs() {
     }
 
-    public Pet(String name, int age) {
+    public PetAbs(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PetAbs petAbs = (PetAbs) o;
+        return age == petAbs.age && Objects.equals(name, petAbs.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
     }
 
     @Override
