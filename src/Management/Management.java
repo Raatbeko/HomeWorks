@@ -1,10 +1,9 @@
 package Management;
 
 import it.academy.Group;
-import student.Student;
+import models.Student;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public interface Management {
 

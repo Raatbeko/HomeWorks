@@ -1,4 +1,4 @@
-package student;
+package models;
 
 import java.util.ArrayList;
 import java.util.Objects;

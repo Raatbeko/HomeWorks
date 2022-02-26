@@ -1,7 +1,9 @@
 package it.academy;
 
-import student.Student;
+import enums.GroupType;
+import models.Student;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -9,12 +11,12 @@ public class Group {
     private GroupType groupType;
     private int courseNum;
     private int numOFGroup;
-    private Set<Student> listOfStudents;
+    private List<Student> listOfStudents;
 
     public Group() {
     }
 
-    public Group(GroupType groupType, int courseNum, int numOFGroup, Set<Student> setOfStudents) {
+    public Group(GroupType groupType, int courseNum, int numOFGroup, List<Student> setOfStudents) {
         this.groupType = groupType;
         this.courseNum = courseNum;
         this.numOFGroup = numOFGroup;
@@ -67,14 +69,6 @@ public class Group {
         this.courseNum = courseNum;
     }
 
-    public Set<Student> getSetOfStudents() {
-        return listOfStudents;
-    }
-
-    public void setSetOfStudents(Set<Student> setOfStudents) {
-        this.listOfStudents = setOfStudents;
-    }
-
     public GroupType getGroupType() {
         return groupType;
     }
@@ -91,11 +85,11 @@ public class Group {
         this.numOFGroup = numOFGroup;
     }
 
-    public Set<Student> getStudents() {
+    public List<Student> getStudents() {
         return listOfStudents;
     }
 
-    public void setStudents(Set<Student> students) {
+    public void setStudents(List<Student> students) {
         this.listOfStudents = students;
     }
 }

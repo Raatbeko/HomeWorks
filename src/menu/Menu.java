@@ -2,8 +2,8 @@ package menu;
 
 import Management.ITAcademyManagement;
 import it.academy.Group;
-import it.academy.GroupType;
-import student.Student;
+import enums.GroupType;
+import models.Student;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -78,7 +78,7 @@ public class Menu {
         courseNum = inputOnConsole().nextInt();
         System.out.print("Номер группы-> ");
         numOfGroup = inputOnConsole().nextInt();
-        itAcademyManagement.addGroup(new Group(GroupType.valueOf(typeOfGroup), courseNum, numOfGroup, new HashSet<>()));
+        itAcademyManagement.addGroup(new Group(GroupType.valueOf(typeOfGroup), courseNum, numOfGroup, new ArrayList<>()));
     }
 
     public void addNewStudent() {

@@ -1,7 +1,7 @@
 package Management;
 
 import it.academy.Group;
-import student.Student;
+import models.Student;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 public class ITAcademyManagement implements Management {
     private ArrayList<Group> groups;
-
     private ArrayList<Student> students;
 
     public ITAcademyManagement(ArrayList<Group> groups, ArrayList<Student> students) {
@@ -85,6 +84,7 @@ public class ITAcademyManagement implements Management {
         }
         return false;
     }
+
     public void showAllGroup(){
         System.out.println(groups);
     }

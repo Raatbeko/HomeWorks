@@ -1,4 +1,4 @@
-package it.academy;
+package enums;
 
 public enum GroupType {
     Java,
