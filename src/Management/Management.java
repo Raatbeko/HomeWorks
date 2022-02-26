@@ -3,12 +3,14 @@ package Management;
 import it.academy.Group;
 import student.Student;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public interface Management {
+
     ArrayList<Group> createListGroup();
 
-    ArrayList<Student> studentsForEnrollmentAndWriteToFile();
+    ArrayList<Student> studentsForEnrollment();
 
     boolean addGroup(Group group);
 
@@ -16,8 +18,10 @@ public interface Management {
 
     boolean removeStudentInGroup(int numOfGroup, Student student);
 
-    void transferToTheNextCourse();
+    void transferToTheNextCourse(Group group);
 
     void showTheAverageScoreOfTheGroup();
+
+    boolean checkScoreCopyToFileAndRemoveOnSet() throws IOException;
 
 }

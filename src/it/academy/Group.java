@@ -2,7 +2,6 @@ package it.academy;
 
 import student.Student;
 
-import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Set;
 
@@ -10,7 +9,7 @@ public class Group {
     private GroupType groupType;
     private int courseNum;
     private int numOFGroup;
-    private Set<Student> setOfStudents;
+    private Set<Student> listOfStudents;
 
     public Group() {
     }
@@ -19,35 +18,46 @@ public class Group {
         this.groupType = groupType;
         this.courseNum = courseNum;
         this.numOFGroup = numOFGroup;
-        this.setOfStudents = setOfStudents;
+        this.listOfStudents = setOfStudents;
     }
 
 
-    public void addStudent(Student student){
-        setOfStudents.add(student);
+    public void addStudent(Student student) {
+        listOfStudents.add(student);
     }
+    public int averageGroup(){
+        int sum = 0;
+        for (Student listOfStudent : listOfStudents) {
+            sum+=listOfStudent.gradePointAverage();
+        }
+        return sum/listOfStudents.size();
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Group group = (Group) o;
-        return numOFGroup == group.numOFGroup && groupType == group.groupType && Objects.equals(setOfStudents, group.setOfStudents);
+        return numOFGroup == group.numOFGroup && groupType == group.groupType && Objects.equals(listOfStudents, group.listOfStudents);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(groupType, numOFGroup, setOfStudents);
+        return Objects.hash(groupType, numOFGroup, listOfStudents);
     }
 
     @Override
     public String toString() {
         return "Group{" +
                 "groupType=" + groupType +
+                ", courseNum=" + courseNum +
                 ", numOFGroup=" + numOFGroup +
-                ", students=" + setOfStudents +
+                ", setOfStudents=" + listOfStudents +
                 '}';
     }
+
 
     public int getCourseNum() {
         return courseNum;
@@ -58,11 +68,11 @@ public class Group {
     }
 
     public Set<Student> getSetOfStudents() {
-        return setOfStudents;
+        return listOfStudents;
     }
 
     public void setSetOfStudents(Set<Student> setOfStudents) {
-        this.setOfStudents = setOfStudents;
+        this.listOfStudents = setOfStudents;
     }
 
     public GroupType getGroupType() {
@@ -82,10 +92,10 @@ public class Group {
     }
 
     public Set<Student> getStudents() {
-        return setOfStudents;
+        return listOfStudents;
     }
 
     public void setStudents(Set<Student> students) {
-        this.setOfStudents = students;
+        this.listOfStudents = students;
     }
 }
