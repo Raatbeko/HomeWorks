@@ -10,20 +10,28 @@ import java.util.Map;
 
 public class HomeWhereHaveDisplayOfPet implements MapOfPets {
 
+    private Map<Cat,PetAbs> catPetAbsMap;
+    private Map<Dog,PetAbs> dogPetAbsMap;
+    private Map<Parrot,PetAbs> parrotPetAbsMap;
+
+    public HomeWhereHaveDisplayOfPet() {
+    }
+
+    public HomeWhereHaveDisplayOfPet(Map<Cat, PetAbs> catPetAbsMap, Map<Dog, PetAbs> dogPetAbsMap, Map<Parrot, PetAbs> parrotPetAbsMap) {
+        this.catPetAbsMap = catPetAbsMap;
+        this.dogPetAbsMap = dogPetAbsMap;
+        this.parrotPetAbsMap = parrotPetAbsMap;
+    }
+
     public void showAllMaps() {
         System.out.println(addCatAndSomePet());
         System.out.println(addDogAndSomePet());
         System.out.println(addParrotAndSomePet());
     }
 
-    @Override
-    public Map<Cat, PetAbs> createMapOfCat() {
-        return new HashMap<>();
-    }
 
     @Override
     public Map<Cat, PetAbs> addCatAndSomePet() {
-        Map<Cat, PetAbs> catPetAbsMap = createMapOfCat();
 
         catPetAbsMap.put(new Cat("Morty", 2), new Parrot("Kosh", 1));
         catPetAbsMap.put(new Cat("Sad", 2), new Dog("Pety", 1));
@@ -32,31 +40,48 @@ public class HomeWhereHaveDisplayOfPet implements MapOfPets {
         return catPetAbsMap;
     }
 
-    @Override
-    public Map<Dog, PetAbs> createMapOfDog() {
-        return new HashMap<>();
-    }
+
 
     @Override
     public Map<Dog, PetAbs> addDogAndSomePet() {
-        Map<Dog, PetAbs> dogPetAbsMap = createMapOfDog();
+
         dogPetAbsMap.put(new Dog("Bob", 1), new Cat("Morty", 2));
         dogPetAbsMap.put(new Dog("None", 2), new Dog("Pety", 1));
         dogPetAbsMap.put(new Dog("Agent", 2), new Parrot("Kosh", 1));
         return dogPetAbsMap;
     }
 
-    @Override
-    public Map<Parrot, PetAbs> createMapOfParrot() {
-        return new HashMap<>();
-    }
 
     @Override
     public Map<Parrot, PetAbs> addParrotAndSomePet() {
-        Map<Parrot, PetAbs> parrotPetAbsMap = createMapOfParrot();
+
         parrotPetAbsMap.put(new Parrot("Mag", 1), new Dog("Pety", 1));
         parrotPetAbsMap.put(new Parrot("Kaban", 2), new Parrot("Kosh", 1));
         parrotPetAbsMap.put(new Parrot("Drag", 1), new Cat("Morty", 2));
         return parrotPetAbsMap;
+    }
+
+    public Map<Cat, PetAbs> getCatPetAbsMap() {
+        return catPetAbsMap;
+    }
+
+    public void setCatPetAbsMap(Map<Cat, PetAbs> catPetAbsMap) {
+        this.catPetAbsMap = catPetAbsMap;
+    }
+
+    public Map<Dog, PetAbs> getDogPetAbsMap() {
+        return dogPetAbsMap;
+    }
+
+    public void setDogPetAbsMap(Map<Dog, PetAbs> dogPetAbsMap) {
+        this.dogPetAbsMap = dogPetAbsMap;
+    }
+
+    public Map<Parrot, PetAbs> getParrotPetAbsMap() {
+        return parrotPetAbsMap;
+    }
+
+    public void setParrotPetAbsMap(Map<Parrot, PetAbs> parrotPetAbsMap) {
+        this.parrotPetAbsMap = parrotPetAbsMap;
     }
 }
