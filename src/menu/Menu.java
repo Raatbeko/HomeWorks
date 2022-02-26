@@ -11,19 +11,28 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class Menu {
+    private ITAcademyManagement itAcademyManagement;
 
-    public void collectAllMenu(){
-        System.out.println(choiceAction());
+    public Menu() {
+    }
+
+    public Menu(ITAcademyManagement itAcademyManagement) {
+        this.itAcademyManagement = itAcademyManagement;
+    }
+
+    public void collectAllMenu() {
 
         boolean control = true;
         int num;
-        while (control){
+        while (control) {
+            System.out.println(choiceAction());
             num = inputOnConsole().nextInt();
-            switch (num){
+            switch (num) {
                 case 1:
                     addNewGroup();
                     break;
                 case 2:
+                    itAcademyManagement.showAllGroup();
                     addNewStudent();
                     break;
                 case 3:
@@ -51,10 +60,6 @@ public class Menu {
         return new Scanner(System.in);
     }
 
-    public ITAcademyManagement getITAcademyManagement() {
-        return new ITAcademyManagement();
-    }
-
     public String choiceAction() {
         return "Добавит новую группу - 1\n" +
                 "Добавить нового студента в группу - 2\n" +
@@ -73,7 +78,7 @@ public class Menu {
         courseNum = inputOnConsole().nextInt();
         System.out.print("Номер группы-> ");
         numOfGroup = inputOnConsole().nextInt();
-        getITAcademyManagement().addGroup(new Group(GroupType.valueOf(typeOfGroup), courseNum, numOfGroup, new HashSet<>()));
+        itAcademyManagement.addGroup(new Group(GroupType.valueOf(typeOfGroup), courseNum, numOfGroup, new HashSet<>()));
     }
 
     public void addNewStudent() {
@@ -98,43 +103,49 @@ public class Menu {
         subjectAssessment.add(collection);
         subjectAssessment.add(if_else);
 
-        getITAcademyManagement().addStudentToGroup(numOfGroup, new Student(id, name, subjectAssessment));
+        itAcademyManagement.addStudentToGroup(numOfGroup, new Student(id, name, subjectAssessment));
     }
-    public void removeStudent(){
+
+    public void removeStudent() {
         String nameOfStudent;
         int numOfGroup;
         System.out.print("Name student-> ");
         nameOfStudent = inputOnConsole().next();
         System.out.print("Num group-> ");
         numOfGroup = inputOnConsole().nextInt();
-        for (Group group : getITAcademyManagement().createListGroup()) {
+        for (Group group :  itAcademyManagement.getGroups()) {
             for (Student student : group.getStudents()) {
-                if (nameOfStudent.equals(student.getName())){
-                   if (getITAcademyManagement().removeStudentInGroup(numOfGroup,student)) System.out.println("Студенты удалены;");;
+                if (nameOfStudent.equals(student.getName())) {
+                    if ( itAcademyManagement.removeStudentInGroup(numOfGroup, student))
+                        System.out.println("Студенты удалены;");
+                    ;
                 }
             }
         }
     }
-    public void updateGroup(){
+
+    public void updateGroup() {
         System.out.print("Num group-> ");
         int numOfGroup = inputOnConsole().nextInt();
-        for (Group group : getITAcademyManagement().createListGroup()) {
-            if (group.getNumOFGroup() == numOfGroup){
-                getITAcademyManagement().transferToTheNextCourse(group);
+        for (Group group : itAcademyManagement.getGroups()) {
+            if (group.getNumOFGroup() == numOfGroup) {
+                itAcademyManagement.transferToTheNextCourse(group);
             }
         }
     }
-    public void copyFile(){
+
+    public void copyFile() {
         try {
-            if (getITAcademyManagement().checkScoreCopyToFileAndRemoveOnSet())
+            if ( itAcademyManagement.checkScoreCopyToFileAndRemoveOnSet())
                 System.out.println("Отчисленные студенты добавлены в файл!");
             else System.out.println("Все студенты прошли!");
-        }catch (IOException ex){
-        System.out.println(ex.getMessage());
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
     }
-    public void showTheAverageScoreOfTheGroup(){
-        getITAcademyManagement().showTheAverageScoreOfTheGroup();
+
+    public void showTheAverageScoreOfTheGroup() {
+        itAcademyManagement.showTheAverageScoreOfTheGroup();
     }
 
 }

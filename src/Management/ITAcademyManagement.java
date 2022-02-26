@@ -9,28 +9,26 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ITAcademyManagement implements Management {
-    @Override
-    public ArrayList<Group> createListGroup() {
-        return new ArrayList<>();
-    }
+    private ArrayList<Group> groups;
 
-    @Override
-    public ArrayList<Student> studentsForEnrollment() {
-        return new ArrayList<>();
+    private ArrayList<Student> students;
+
+    public ITAcademyManagement(ArrayList<Group> groups, ArrayList<Student> students) {
+        this.groups = groups;
+        this.students = students;
     }
 
     @Override
     public boolean addGroup(Group group) {
-        ArrayList<Group> arrayList = createListGroup();
-        arrayList.add(group);
-        return false;
+
+        return groups.add(group);
     }
 
     @Override
     public boolean addStudentToGroup(int numOfGroup, Student student) {
-        for (int i = 0; i < createListGroup().size(); i++) {
-            if (createListGroup().get(i).getNumOFGroup() == numOfGroup) {
-                createListGroup().get(i).addStudent(student);
+        for (int i = 0; i < groups.size(); i++) {
+            if (groups.get(i).getNumOFGroup() == numOfGroup) {
+                groups.get(i).addStudent(student);
                 return true;
             }
         }
@@ -39,11 +37,11 @@ public class ITAcademyManagement implements Management {
 
     @Override
     public boolean removeStudentInGroup(int numOfGroup, Student student) {
-        for (int i = 0; i < createListGroup().size(); i++) {
-            if (createListGroup().get(i).getNumOFGroup() == numOfGroup) {
-                for (Student student1 : createListGroup().get(i).getStudents()) {
+        for (int i = 0; i < groups.size(); i++) {
+            if (groups.get(i).getNumOFGroup() == numOfGroup) {
+                for (Student student1 : groups.get(i).getStudents()) {
                     if (student.equals(student1)) {
-                        return createListGroup().get(i).getStudents().remove(student);
+                        return groups.get(i).getStudents().remove(student);
                     }
                 }
             }
@@ -53,10 +51,10 @@ public class ITAcademyManagement implements Management {
 
     @Override
     public void transferToTheNextCourse(Group group) {
-        createListGroup().get(createListGroup().
+        groups.get(groups.
                         indexOf(group)).
-                setCourseNum(createListGroup().
-                        get(createListGroup().
+                setCourseNum(groups.
+                        get(groups.
                                 indexOf(group)).
                         getCourseNum() + 1);
     }
@@ -64,7 +62,7 @@ public class ITAcademyManagement implements Management {
     @Override
     public void showTheAverageScoreOfTheGroup() {
         try {
-            for (Group group : createListGroup()) {
+            for (Group group : groups) {
                 System.out.println(group.getGroupType() + ": " + group.averageGroup());
             }
         }catch (NullPointerException ex){
@@ -76,15 +74,34 @@ public class ITAcademyManagement implements Management {
     public boolean checkScoreCopyToFileAndRemoveOnSet() throws IOException {
         File file = new File("expelledStudent.txt");
         FileWriter fileWriter = new FileWriter(file);
-        for (Group group : createListGroup()) {
+        for (Group group : groups) {
             for (Student student : group.getStudents()) {
                 if (student.gradePointAverage()<61){
-                    studentsForEnrollment().add(student);
+                    students.add(student);
                     fileWriter.write(student.getName());
                     return group.getStudents().remove(student);
                 }
             }
         }
         return false;
+    }
+    public void showAllGroup(){
+        System.out.println(groups);
+    }
+
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
+    }
+
+    public ArrayList<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(ArrayList<Group> groups) {
+        this.groups = groups;
     }
 }

@@ -8,9 +8,6 @@ import java.util.ArrayList;
 
 public interface Management {
 
-    ArrayList<Group> createListGroup();
-
-    ArrayList<Student> studentsForEnrollment();
 
     boolean addGroup(Group group);
 
