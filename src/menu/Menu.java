@@ -1,13 +1,13 @@
 package menu;
 
 import Management.ITAcademyManagement;
-import it.academy.Group;
+import exception.YouNotCreateGroup;
+import models.Group;
 import enums.GroupType;
 import models.Student;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Scanner;
 
 public class Menu {
@@ -36,10 +36,14 @@ public class Menu {
                     addNewStudent();
                     break;
                 case 3:
-                    removeStudent();
+                        removeStudent();
                     break;
                 case 4:
-                    updateGroup();
+                    try {
+                        updateGroup();
+                    }catch (YouNotCreateGroup ex){
+                        System.out.println("Создайте группу чтобы что то сделать.");
+                    }
                     break;
                 case 5:
                     copyFile();

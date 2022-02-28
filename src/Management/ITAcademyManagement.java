@@ -1,6 +1,7 @@
 package Management;
 
-import it.academy.Group;
+import exception.YouNotCreateGroup;
+import models.Group;
 import models.Student;
 
 import java.io.File;
@@ -25,31 +26,41 @@ public class ITAcademyManagement implements Management {
 
     @Override
     public boolean addStudentToGroup(int numOfGroup, Student student) {
-        for (int i = 0; i < groups.size(); i++) {
-            if (groups.get(i).getNumOFGroup() == numOfGroup) {
-                groups.get(i).addStudent(student);
-                return true;
+
+        try {
+            for (Group group : groups) {
+                if (group.getNumOFGroup() == numOfGroup) {
+                    group.addStudent(student);
+                    return true;
+                }
             }
+        }catch (YouNotCreateGroup ex){
+            System.out.println("Создайте группу чтобы добавить студента!!!");
         }
         return false;
     }
 
     @Override
     public boolean removeStudentInGroup(int numOfGroup, Student student) {
-        for (int i = 0; i < groups.size(); i++) {
-            if (groups.get(i).getNumOFGroup() == numOfGroup) {
-                for (Student student1 : groups.get(i).getStudents()) {
-                    if (student.equals(student1)) {
-                        return groups.get(i).getStudents().remove(student);
+        try {
+            for (int i = 0; i < groups.size(); i++) {
+                if (groups.get(i).getNumOFGroup() == numOfGroup) {
+                    for (Student student1 : groups.get(i).getStudents()) {
+                        if (student.equals(student1)) {
+                            return groups.get(i).getStudents().remove(student);
+                        }
                     }
                 }
             }
+        }catch (YouNotCreateGroup ex){
+            System.out.println("Создайте группу чтобы что то сделать.");
         }
         return false;
     }
 
     @Override
     public void transferToTheNextCourse(Group group) {
+        if (group == null) throw new NullPointerException();
         groups.get(groups.
                         indexOf(group)).
                 setCourseNum(groups.
@@ -64,8 +75,8 @@ public class ITAcademyManagement implements Management {
             for (Group group : groups) {
                 System.out.println(group.getGroupType() + ": " + group.averageGroup());
             }
-        }catch (NullPointerException ex){
-            System.out.println(ex.getMessage());
+        }catch (YouNotCreateGroup ex){
+            System.out.println("Создайте группу чтобы что то сделать.");
         }
     }
 

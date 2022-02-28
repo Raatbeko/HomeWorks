@@ -1,13 +1,12 @@
-package it.academy;
+package models;
 
 import enums.GroupType;
-import models.Student;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public class Group {
+
     private GroupType groupType;
     private int courseNum;
     private int numOFGroup;

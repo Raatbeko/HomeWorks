@@ -1,6 +1,6 @@
 package Management;
 
-import it.academy.Group;
+import models.Group;
 import models.Student;
 
 import java.io.IOException;
