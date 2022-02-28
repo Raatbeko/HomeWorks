@@ -1,32 +1,31 @@
-package displayOfPet;
+package mapOfPet;
 
 import Animal.Cat;
 import Animal.Dog;
 import Animal.Parrot;
 import Animal.PetAbs;
 
-import java.util.HashMap;
 import java.util.Map;
 
-public class HomeWhereHaveDisplayOfPet implements MapOfPets {
+public class HomeWhereHaveMapOfPet implements MapOfPets {
 
     private Map<Cat,PetAbs> catPetAbsMap;
     private Map<Dog,PetAbs> dogPetAbsMap;
     private Map<Parrot,PetAbs> parrotPetAbsMap;
 
-    public HomeWhereHaveDisplayOfPet() {
+    public HomeWhereHaveMapOfPet() {
     }
 
-    public HomeWhereHaveDisplayOfPet(Map<Cat, PetAbs> catPetAbsMap, Map<Dog, PetAbs> dogPetAbsMap, Map<Parrot, PetAbs> parrotPetAbsMap) {
+    public HomeWhereHaveMapOfPet(Map<Cat, PetAbs> catPetAbsMap, Map<Dog, PetAbs> dogPetAbsMap, Map<Parrot, PetAbs> parrotPetAbsMap) {
         this.catPetAbsMap = catPetAbsMap;
         this.dogPetAbsMap = dogPetAbsMap;
         this.parrotPetAbsMap = parrotPetAbsMap;
     }
 
     public void showAllMaps() {
-        System.out.println(addCatAndSomePet());
-        System.out.println(addDogAndSomePet());
-        System.out.println(addParrotAndSomePet());
+        System.out.println(addCatAndSomePet().keySet());
+        System.out.println(addDogAndSomePet().keySet());
+        System.out.println(addParrotAndSomePet().keySet());
     }
 
 

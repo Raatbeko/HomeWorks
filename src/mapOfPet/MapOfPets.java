@@ -1,4 +1,4 @@
-package displayOfPet;
+package mapOfPet;
 
 import Animal.Cat;
 import Animal.Dog;

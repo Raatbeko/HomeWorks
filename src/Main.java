@@ -1,11 +1,11 @@
-import displayOfPet.HomeWhereHaveDisplayOfPet;
+import mapOfPet.HomeWhereHaveMapOfPet;
 
 import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
 
-        HomeWhereHaveDisplayOfPet home = new HomeWhereHaveDisplayOfPet(new HashMap<>(),new HashMap<>(),new HashMap<>());
+        HomeWhereHaveMapOfPet home = new HomeWhereHaveMapOfPet(new HashMap<>(),new HashMap<>(),new HashMap<>());
         home.showAllMaps();
 
     }
