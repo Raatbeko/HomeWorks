@@ -1,0 +1,36 @@
+create table type_sport(
+id serial primary key,
+name varchar(50) unique not null
+);
+insert into type_sport(name)
+values('футбол');
+
+create table trainer(
+id serial primary key,
+full_name varchar(varchar) not null,
+experience int not null,
+type_sport_id int references type_sport(id)
+);
+
+insert into trainer(full_name,experience,type_sport)
+values('Ivanov Vanya',3,1);
+
+create table visitors(
+id serial primary key,
+full_name varchar(50) not null,
+date_of_birth date not null,
+sex varchar(10) not null
+);
+ 
+insert into visitors(full_name,date_of_birth,sex)
+values ('Roman Romanovich','12-01-2001','M');
+
+create table visits(
+id serial primary key,
+visitors_id references visitors(id),
+time_of_visits timestamp not null,
+trainer_id references trainer(id)
+);
+
+insert into visitors (visitors_id,time_of_visits,trainer_id)
+values(1,'2017-06-08 08:58:18.413714 PM',1);
