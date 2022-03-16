@@ -1,6 +1,6 @@
-package task_B.dBase;
+package dBase;
 
-import task_B.model.Group;
+import model.Group;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

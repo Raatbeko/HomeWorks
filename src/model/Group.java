@@ -1,4 +1,4 @@
-package task_B.model;
+package model;
 
 public class Group {
     private int id;
