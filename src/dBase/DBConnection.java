@@ -12,14 +12,18 @@ public class DBConnection {
     public Connection connection() {
         Connection connection = null;
         try {
-            Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
             System.out.println("Well done");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return connection;
     }
+    
 }
