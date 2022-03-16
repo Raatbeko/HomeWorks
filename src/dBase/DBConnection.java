@@ -9,7 +9,7 @@ public class DBConnection {
     private static final String USER = "postgres";
     private static final String PASSWORD = "radik";
 
-    public  Connection connection() {
+    public static Connection connection() {
         Connection connection = null;
         try {
             Class.forName("org.postgresql.Driver");
