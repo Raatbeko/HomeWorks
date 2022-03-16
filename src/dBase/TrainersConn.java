@@ -12,12 +12,12 @@ import java.util.Map;
 
 
 public class TrainersConn {
-    private DBConnection dbConnection;
+    private DBConnection dbConnection = new DBConnection();
 
     public Map<Trainer,String> getAllTrainer() {
-        String sql = "SELECT t.id, t.full_name, t.experience, ts.name " +
-                "FROM trainers" +
-                "JOIN type_sport ts ON ts.id = t.type_sport_id";
+        String sql = "SELECT id as id_trainer, full_name, experience, ts.name " +
+                "FROM trainers t" +
+                "JOIN type_sport as ts ON ts.id = t.type_sport_id";
         Map<Trainer,String> trainers = new HashMap<>();
         try (Connection conn = dbConnection.connection();
              Statement st = conn.createStatement();
@@ -29,6 +29,7 @@ public class TrainersConn {
                         set.getString("t.full_name"),
                         set.getInt("t.experience"),
                         TypeSport.valueOf(set.getString("ts.name")));
+
                 trainers.put(trainer,
                         trainer.getFullName().length() >= 3?"Молодец":"Не молодец");
             }
