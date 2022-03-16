@@ -34,6 +34,7 @@ public class TrainersConn {
                         trainer.getFullName().length() >= 3?"Молодец":"Не молодец");
             }
 
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
