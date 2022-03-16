@@ -1,6 +1,6 @@
-package dBase;
+package task_B.dBase;
 
-import model.Group;
+import task_B.model.Group;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class GroupConn {
     private DBConnection dbConnection = new DBConnection();

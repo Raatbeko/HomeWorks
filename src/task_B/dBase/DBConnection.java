@@ -1,4 +1,4 @@
-package dBase;
+package task_B.dBase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
