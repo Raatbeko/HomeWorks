@@ -1,25 +1,39 @@
 package models;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
-public class User {
+public class UserModel {
     private long id;
     private String userName;
     private String eMail;
     private String password;
-    private LocalDateTime dateOfRegistration;
+    private Timestamp dateOfRegistration;
     private boolean isBlocked;
 
-    public User() {
+
+    public UserModel() {
     }
 
-    public User(long id) {
+    public UserModel(long id, String userName, String eMail, String password,boolean isBlocked) {
+        this.id = id;
+        this.userName = userName;
+        this.eMail = eMail;
+        this.password = password;
+        this.isBlocked = isBlocked;
+    }
+
+    public UserModel(String userName, String eMail, String password) {
+        this.userName = userName;
+        this.eMail = eMail;
+        this.password = password;
+    }
+
+    public UserModel(long id) {
         this.id = id;
     }
 
-    public User(long id, String userName, String eMail, String password, LocalDateTime dateOfRegistration, boolean isBlocked) {
-        this.id = id;
+
+    public UserModel(String userName, String eMail, String password, Timestamp dateOfRegistration, boolean isBlocked) {
         this.userName = userName;
         this.eMail = eMail;
         this.password = password;
@@ -27,7 +41,8 @@ public class User {
         this.isBlocked = isBlocked;
     }
 
-    public User(String userName, String eMail, String password, LocalDateTime dateOfRegistration, boolean isBlocked) {
+    public UserModel(long id, String userName, String eMail, String password, Timestamp dateOfRegistration, boolean isBlocked) {
+        this.id = id;
         this.userName = userName;
         this.eMail = eMail;
         this.password = password;
@@ -67,11 +82,11 @@ public class User {
         this.password = password;
     }
 
-    public LocalDateTime getDateOfRegistration() {
+    public Timestamp getDateOfRegistration() {
         return dateOfRegistration;
     }
 
-    public void setDateOfRegistration(LocalDateTime dateOfRegistration) {
+    public void setDateOfRegistration(Timestamp dateOfRegistration) {
         this.dateOfRegistration = dateOfRegistration;
     }
 
@@ -81,5 +96,17 @@ public class User {
 
     public void setBlocked(boolean blocked) {
         isBlocked = blocked;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", eMail='" + eMail + '\'' +
+                ", password='" + password + '\'' +
+                ", dateOfRegistration=" + dateOfRegistration +
+                ", isBlocked=" + isBlocked +
+                '}';
     }
 }

@@ -1,15 +1,12 @@
 import dBConn.DBconn;
-import models.User;
-import models.UserLogs;
-import service.UserService;
-
-import java.time.LocalDateTime;
+import dao.impl.UserLogsDaoImpl;
+import service.impl.UserServiceImpl;
 
 public class Main {
     public static void main(String[] args) {
         DBconn.connection();
-        UserService service = new UserService();
-        service.addUserLogs(new User(1),"SUCCESS");
+        UserLogsDaoImpl userLogsDao = new UserLogsDaoImpl();
+        System.out.println(userLogsDao.countLog(4L));
     }
 
 }

@@ -1,16 +1,16 @@
-package service;
+package dao;
 
 import models.UserLogsModel;
 import models.UserModel;
 
-public interface UserService {
+public interface UserDao {
     boolean addUser(UserModel user);
 
     UserModel getUserByName(String userName);
 
     UserModel getUser(Long id_user);
 
-    void unlockingUser(UserModel user, UserLogsModel userLogsModel);
+    void unlockingOrBlockingUser(UserModel user, UserLogsModel userLogsModel);
 
     boolean deleteUser(Long id);
 }

@@ -1,26 +1,27 @@
 package models;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-public class UserLogs {
+public class UserLogsModel {
     private long id;
     //OneToOne
-    private User user;
-    private LocalDateTime loginTime;
-    private LocalDateTime updateTime;
+    private UserModel user;
+    private Timestamp loginTime;
+    private Timestamp updateTime;
     private int counter;
     private String LoginResult;
 
-    public UserLogs() {
+    public UserLogsModel() {
     }
 
-    public UserLogs(User user, LocalDateTime loginTime, String loginResult) {
+    public UserLogsModel(UserModel user, Timestamp updateTime, String loginResult) {
         this.user = user;
-        this.loginTime = loginTime;
+        this.updateTime = updateTime;
         LoginResult = loginResult;
     }
 
-    public UserLogs(User user, LocalDateTime loginTime, LocalDateTime updateTime, int counter, String loginResult) {
+    public UserLogsModel(UserModel user, Timestamp loginTime, Timestamp updateTime, int counter, String loginResult) {
         this.user = user;
         this.loginTime = loginTime;
         this.updateTime = updateTime;
@@ -28,7 +29,7 @@ public class UserLogs {
         LoginResult = loginResult;
     }
 
-    public UserLogs(long id, User user, LocalDateTime loginTime, LocalDateTime updateTime, int counter, String loginResult) {
+    public UserLogsModel(long id, UserModel user, Timestamp loginTime, Timestamp updateTime, int counter, String loginResult) {
         this.id = id;
         this.user = user;
         this.loginTime = loginTime;
@@ -45,19 +46,19 @@ public class UserLogs {
         this.counter = counter;
     }
 
-    public LocalDateTime getLoginTime() {
+    public Timestamp getLoginTime() {
         return loginTime;
     }
 
-    public void setLoginTime(LocalDateTime loginTime) {
+    public void setLoginTime(Timestamp loginTime) {
         this.loginTime = loginTime;
     }
 
-    public LocalDateTime getUpdateTime() {
+    public Timestamp getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(LocalDateTime updateTime) {
+    public void setUpdateTime(Timestamp updateTime) {
         this.updateTime = updateTime;
     }
 
@@ -69,19 +70,19 @@ public class UserLogs {
         this.id = id;
     }
 
-    public User getUser() {
+    public UserModel getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserModel user) {
         this.user = user;
     }
 
-    public LocalDateTime getLocalDateTime() {
+    public Timestamp getLocalDateTime() {
         return loginTime;
     }
 
-    public void setLocalDateTime(LocalDateTime localDateTime) {
+    public void setLocalDateTime(Timestamp localDateTime) {
         this.loginTime = localDateTime;
     }
 
