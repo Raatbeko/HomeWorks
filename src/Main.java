@@ -1,6 +1,22 @@
+import dao.RoleDao;
+import dao.UserDao;
+import dao.UserLogsDao;
+import dao.impl.RoleDaoImpl;
+import dao.impl.UserDaoImpl;
+import dao.impl.UserLogsDaoImpl;
+import entity.Role;
+import entity.User;
+import enums.Roles;
+import lombok.Builder;
 
+import java.time.LocalDateTime;
 
 public class Main {
+    public static void main(String[] args) {
+        UserLogsDao userLogsDao = new UserLogsDaoImpl();
+        UserDao userDao = new UserDaoImpl();
+        userDao.insert(new User("name","name","name", LocalDateTime.now(),"USER"));
+    }
     /*
     CREATE TABLE public.users (
 	user_id serial4 NOT NULL,
