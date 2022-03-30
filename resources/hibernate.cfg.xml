@@ -19,7 +19,7 @@
         <property name="show_sql">true</property>
 
         <!-- Update database on startup -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
 
         <!-- Annotated entity classes -->
         <mapping class="entity.User"/>
@@ -27,7 +27,7 @@
         <mapping class="entity.Address"/>
         <mapping class="entity.Event"/>
         <mapping class="entity.EventType"/>
-        <mapping class="entity.Role"/>
+        <mapping class="entity.Roles"/>
         <mapping class="entity.Reviews"/>
 
     </session-factory>
