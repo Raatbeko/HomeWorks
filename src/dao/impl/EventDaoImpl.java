@@ -1,13 +1,11 @@
 package dao.impl;
 
 import dao.EventDao;
-import entity.Address;
 import entity.Event;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EventDaoImpl implements EventDao {
@@ -18,6 +16,7 @@ public class EventDaoImpl implements EventDao {
             Session session = HibernateSessionFactoryUtils.buildSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
             session.save(event);
+            Event event1 = session.get(Event.class,event.getId());
             transaction.commit();
             session.close();
             result = "Запись создана/обновлена успешно";
@@ -47,7 +46,7 @@ public class EventDaoImpl implements EventDao {
 
     @Override
     public List<Event> getAll() {
-        List<Event> eventd = new ArrayList<>();
+        List<Event> eventd ;
         try {
             Session session = HibernateSessionFactoryUtils.buildSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
