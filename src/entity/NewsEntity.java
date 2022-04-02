@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 
-public class News {
+public class NewsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -30,7 +30,7 @@ public class News {
 
     @OneToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
-    NewsCategory newsCategory;
+    NewsCategoryEntity newsCategory;
 
     @Column(name = "time_post")
     LocalDateTime localDateTime;

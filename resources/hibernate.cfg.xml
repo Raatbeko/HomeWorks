@@ -22,8 +22,8 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Annotated entity classes -->
-        <mapping class="entity.News"/>
-        <mapping class="entity.NewsCategory"/>
+        <mapping class="entity.NewsEntity"/>
+        <mapping class="entity.NewsCategoryEntity"/>
 
     </session-factory>
 </hibernate-configuration>

@@ -1,15 +1,15 @@
 package dao;
 
-import entity.NewsCategory;
+import entity.NewsCategoryEntity;
 import enums.Category;
 
 import java.util.List;
 
 public interface NewsCategoryDao {
-    NewsCategory getCategory(Category category);
-    String addCategory(NewsCategory category);
+    NewsCategoryEntity getCategory(Category category);
+    String addCategory(NewsCategoryEntity category);
 
-    NewsCategory updateCategoryByName(Category lastname, Category newName);
+    NewsCategoryEntity updateCategoryByName(Category lastname, Category newName);
 
-    List<NewsCategory> getAllCategory();
+    List<NewsCategoryEntity> getAllCategory();
 }

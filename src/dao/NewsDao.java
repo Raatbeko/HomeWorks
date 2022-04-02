@@ -1,12 +1,12 @@
 package dao;
 
-import Model.NewsModel;
-import entity.News;
+import models.NewsModel;
+import entity.NewsEntity;
 
 import java.util.List;
 
 public interface NewsDao {
-    String createNewNews(News news);
+    String createNewNews(NewsEntity news);
 
     NewsModel getNewsByNewsHeadLine(String newsHeadline);
 

@@ -1,19 +1,18 @@
 package dao.impl;
 
-import Model.NewsModel;
+import models.NewsModel;
 import dao.NewsDao;
-import entity.News;
+import entity.NewsEntity;
 import org.hibernate.Session;
 import utils.HibernateSessionFactoryUtils;
 
-import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
 public class NewsDaoImpl implements NewsDao {
 
     @Override
-    public String createNewNews(News news) {
+    public String createNewNews(NewsEntity news) {
         try {
             Session session = HibernateSessionFactoryUtils.buildSessionFactory().openSession();
             session.beginTransaction();
@@ -34,7 +33,7 @@ public class NewsDaoImpl implements NewsDao {
             Session session = HibernateSessionFactoryUtils.buildSessionFactory().openSession();
             session.beginTransaction();
 
-            List<News> news = session.createQuery("from entity.News where newsHeadline =:newsHeadLines",News.class).setParameter("newsHeadLines",newsHeadlines).list();
+            List<NewsEntity> news = session.createQuery("from entity.NewsEntity where newsHeadline =:newsHeadLines", NewsEntity.class).setParameter("newsHeadLines",newsHeadlines).list();
             newsModel.setNewsHeadline(news.get(0).getNewsHeadline());
             newsModel.setNewsText(news.get(0).getNewsText());
             session.getTransaction().commit();
@@ -66,7 +65,7 @@ public class NewsDaoImpl implements NewsDao {
         try {
             Session session = HibernateSessionFactoryUtils.buildSessionFactory().openSession();
             session.beginTransaction();
-            News news = session.get(News.class,id);
+            NewsEntity news = session.get(NewsEntity.class,id);
             news.setNewsHeadline(newsModel.getNewsHeadline());
             news.setNewsText(newsModel.getNewsText());
             session.update(news);
@@ -85,8 +84,8 @@ public class NewsDaoImpl implements NewsDao {
         try {
             Session session = HibernateSessionFactoryUtils.buildSessionFactory().openSession();
             session.beginTransaction();
-            List<News> news = session.createQuery("select d.newsHeadline from entity.News d where d.newsHeadline like :text ",News.class).setParameter("text",text).list();
-            for (News news1 : news) {
+            List<NewsEntity> news = session.createQuery("select d.newsHeadline from entity.NewsEntity d where d.newsHeadline like :text ", NewsEntity.class).setParameter("text",text).list();
+            for (NewsEntity news1 : news) {
                 NewsModel newsModel = NewsModel.
                         builder().
                         newsHeadline(news1.getNewsHeadline()).

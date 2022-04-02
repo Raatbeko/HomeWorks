@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Setter
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class NewsCategory {
+public class NewsCategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;

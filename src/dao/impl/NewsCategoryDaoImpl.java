@@ -1,22 +1,21 @@
 package dao.impl;
 
 import dao.NewsCategoryDao;
-import entity.NewsCategory;
+import entity.NewsCategoryEntity;
 import enums.Category;
 import org.hibernate.Session;
 import utils.HibernateSessionFactoryUtils;
 
-import javax.persistence.Query;
 import java.util.List;
 
 public class NewsCategoryDaoImpl implements NewsCategoryDao {
     @Override
-    public NewsCategory getCategory(Category category) {
+    public NewsCategoryEntity getCategory(Category category) {
         return null;
     }
 
     @Override
-    public String addCategory(NewsCategory category) {
+    public String addCategory(NewsCategoryEntity category) {
         try {
             Session session = HibernateSessionFactoryUtils.buildSessionFactory().openSession();
             session.beginTransaction();
@@ -31,14 +30,14 @@ public class NewsCategoryDaoImpl implements NewsCategoryDao {
     }
 
     @Override
-    public NewsCategory updateCategoryByName(Category lastname, Category newName) {
+    public NewsCategoryEntity updateCategoryByName(Category lastname, Category newName) {
         try{
             Session session = HibernateSessionFactoryUtils.buildSessionFactory().openSession();
             session.beginTransaction();
-            List<NewsCategory> newsCategories  =  session.createQuery("from entity.NewsCategory where newsCategory =:lastname",NewsCategory.class).
+            List<NewsCategoryEntity> newsCategories  =  session.createQuery("from entity.NewsCategoryEntity where newsCategory =:lastname", NewsCategoryEntity.class).
                     setParameter("lastname",lastname).list();
             if (newsCategories != null) {
-                NewsCategory newsCategory = newsCategories.get(0);
+                NewsCategoryEntity newsCategory = newsCategories.get(0);
                 newsCategory.setNewsCategory(newName);
                 session.update(newsCategory);
                 session.getTransaction().commit();
@@ -55,12 +54,12 @@ public class NewsCategoryDaoImpl implements NewsCategoryDao {
     }
 
     @Override
-    public List<NewsCategory> getAllCategory() {
-        List<NewsCategory> categories;
+    public List<NewsCategoryEntity> getAllCategory() {
+        List<NewsCategoryEntity> categories;
         try {
             Session session = HibernateSessionFactoryUtils.buildSessionFactory().openSession();
             session.beginTransaction();
-            categories =  session.createQuery("from entity.NewsCategory",NewsCategory.class).list();
+            categories =  session.createQuery("from entity.NewsCategoryEntity", NewsCategoryEntity.class).list();
             session.getTransaction().commit();
             session.close();
             return categories;

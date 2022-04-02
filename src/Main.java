@@ -2,8 +2,8 @@ import dao.NewsCategoryDao;
 import dao.NewsDao;
 import dao.impl.NewsCategoryDaoImpl;
 import dao.impl.NewsDaoImpl;
-import entity.News;
-import entity.NewsCategory;
+import entity.NewsEntity;
+import entity.NewsCategoryEntity;
 import enums.Category;
 
 public class Main {
@@ -11,17 +11,17 @@ public class Main {
     static  final NewsDao newsDao = new NewsDaoImpl();
 
     public static void main(String[] args) {
-        NewsCategory sport = NewsCategory.
+        NewsCategoryEntity sport = NewsCategoryEntity.
                 builder().
                 newsCategory(Category.SPORT).
                 build();
 
-        NewsCategory art = NewsCategory.
+        NewsCategoryEntity art = NewsCategoryEntity.
                 builder().
                 newsCategory(Category.ART_CULTURE).
                 build();
 
-        NewsCategory politic = NewsCategory.
+        NewsCategoryEntity politic = NewsCategoryEntity.
                 builder().
                 newsCategory(Category.POLITIC).
                 build();
@@ -30,7 +30,7 @@ public class Main {
         newsCategory.addCategory(art);
         newsCategory.addCategory(politic);
 
-        News news = News.
+        NewsEntity news = NewsEntity.
                 builder().newsHeadline("Сегодняшние новости про спорт").
                 newsCategory(sport).
                 newsText("С 30 марта по 3 апреля в Тюмени проходит открытый чемпионат России-2022.\n" +
