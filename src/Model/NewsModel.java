@@ -14,4 +14,12 @@ public class NewsModel {
 
     String newsText;
 
+    @Override
+    public String toString() {
+        return "NewsModel{" +
+                "newsHeadline='" + newsHeadline + '\'' +
+                ", newsText='" + newsText + '\'' +
+                '}';
+    }
+
 }

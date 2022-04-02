@@ -2,6 +2,7 @@ package entity;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,15 +15,17 @@ import java.time.LocalDateTime;
 @Setter
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
+
 public class News {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(name = "news_headline")
+    @Column(name = "news_headline",nullable = false)
     String newsHeadline;
 
-    @Column(name = "news_text")
+    @Column(name = "news_text",nullable = false)
+    @Type(type="text")
     String newsText;
 
     @OneToOne
@@ -31,5 +34,16 @@ public class News {
 
     @Column(name = "time_post")
     LocalDateTime localDateTime;
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "id=" + id +
+                ", newsHeadline='" + newsHeadline + '\'' +
+                ", newsText='" + newsText + '\'' +
+                ", newsCategory=" + newsCategory +
+                ", localDateTime=" + localDateTime +
+                '}';
+    }
 }
 

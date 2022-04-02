@@ -8,7 +8,7 @@
 
         <!-- Connection settings -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/afisha.kg</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/DEMO</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">radik</property>
 
@@ -22,13 +22,8 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Annotated entity classes -->
-        <mapping class="entity.User"/>
-        <mapping class="entity.UserLogs"/>
-        <mapping class="entity.Address"/>
-        <mapping class="entity.Event"/>
-        <mapping class="entity.EventType"/>
-        <mapping class="entity.Role"/>
-        <mapping class="entity.Reviews"/>
+        <mapping class="entity.News"/>
+        <mapping class="entity.NewsCategory"/>
 
     </session-factory>
 </hibernate-configuration>

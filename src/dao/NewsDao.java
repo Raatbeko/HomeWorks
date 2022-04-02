@@ -14,5 +14,5 @@ public interface NewsDao {
 
     NewsModel changeHeadlineAndTextById(Long id,NewsModel newsModel);
 
-    List<NewsModel> searchNewsByText();
+    List<NewsModel> searchNewsByText(String  text);
 }

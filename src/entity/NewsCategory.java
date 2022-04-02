@@ -20,7 +20,14 @@ public class NewsCategory {
     Long id;
 
     @Enumerated(value = EnumType.STRING)
-    @Column(name = "category")
+    @Column(name = "news_category",nullable = false,unique = true)
     Category newsCategory;
 
+    @Override
+    public String toString() {
+        return "NewsCategory{" +
+                "id=" + id +
+                ", newsCategory=" + newsCategory +
+                '}';
+    }
 }
