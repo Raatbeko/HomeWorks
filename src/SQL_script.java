@@ -56,7 +56,7 @@ public class SQL_script {
           (3,2,3);
 
           INSERT INTO driving_data
-          VALUES
+              VALUES
           (1,1,'2022-06-22 08:10:25-07'),
           (2,3,'2022-07-15 07:10:34-06');
      */
