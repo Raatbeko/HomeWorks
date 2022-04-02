@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "news")
@@ -22,10 +23,13 @@ public class News {
     String newsHeadline;
 
     @Column(name = "news_text")
-    String news_text;
+    String newsText;
 
     @OneToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     NewsCategory newsCategory;
+
+    @Column(name = "time_post")
+    LocalDateTime localDateTime;
 }
 
