@@ -5,5 +5,5 @@ import org.hibernate.Session;
 import utils.HibernateSessionFactoryUtils;
 
 public interface GroupDao {
-    Group getGroupById(Group group);
+    Group getGroupById(Long id);
 }

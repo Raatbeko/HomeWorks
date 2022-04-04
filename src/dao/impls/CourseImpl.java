@@ -9,17 +9,23 @@ import enums.Type_group;
 import org.hibernate.Session;
 import utils.HibernateSessionFactoryUtils;
 
+import java.util.List;
+
 public class CourseImpl extends BaseDao implements CourseDao {
-    private static final Session session = HibernateSessionFactoryUtils.buildSessionFactory().openSession();
 
     @Override
     public Course getCourseByTypeCourse(Type_course type_course){
         try {
+            Session session = HibernateSessionFactoryUtils.buildSessionFactory().openSession();
             session.beginTransaction();
-            Long id  =  session.createSQLQuery(String.format("SELECT id FROM courses WHERE type_course= '%s'", type_course.name()));
+            List<Course> id  =  session.createQuery("from entity.Course c where c.type_course = :type_courses",Course.class).setParameter("type_courses",type_course).list();
             session.getTransaction().commit();
             session.close();
-            return course;
+            for (Course course : id) {
+                if (course.getType_course().equals(type_course)){
+                    return course;
+                }
+            }
         }catch (Exception e){
             System.out.println(e.getMessage());
         }

@@ -8,11 +8,14 @@ import utils.HibernateSessionFactoryUtils;
 
 public class GroupImpl extends BaseDao implements GroupDao {
     @Override
-    public Group getGroupById(Group group) {
+    public Group getGroupById(Long id) {
         try {
             Session session = HibernateSessionFactoryUtils.buildSessionFactory().openSession();
             session.beginTransaction();
-            return session.get(Group.class, group.getId());
+           Group group = session.get(Group.class, id);
+            session.getTransaction().commit();
+            session.close();
+            return group;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;

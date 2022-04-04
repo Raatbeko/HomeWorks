@@ -54,6 +54,10 @@ public class Main {
         group.insert(group4);
 
         course.insert(courseFrontEnd);
+        Course course1 = course.getCourseByTypeCourse(Type_course.JAVA_DEVELOPER);
+        course1.setGroups(Arrays.asList(group.getGroupById(4L)));
+
+        course.update(course1);
 
         if(courseJava.getId() == null) course.insert(courseJava);
         else course.update(courseJava);
