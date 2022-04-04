@@ -1,5 +1,5 @@
 # Default ignored files
-/shelf/
+/.idea/shelf/
 /workspace.xml
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -11,6 +11,10 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea
+/HomeWorks.iml
+/target
+
 
 # AWS User-specific
 .idea/**/aws.xml
